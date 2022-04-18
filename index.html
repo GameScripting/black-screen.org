@@ -8,13 +8,39 @@
             margin: 0;
             padding: 0;
         }
+
+        #time {
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #0c0c0c;
+            position: absolute;
+            font-size: 150pt;
+            transform: translateY(-50%);
+            font-family: Roboto, Arial, sans-serif;
+        }
     </style>
 </head>
 <body style="height: 100vh; width: 100%; background: #000">
     <h1>Just pure black screen</h1>
     <p>This is just a pure black screen. Click or press F11 on your keyboard to switch to fullscreen.</p>
 
+    <p id="time"></p>
+
     <script>
+        function updateTime() {
+            const timeElm = document.getElementById("time")
+            if (timeElm) {
+                const now = new Date();
+                const h = now.getHours();
+                const m = now.getMinutes();
+                timeElm.innerText = `${h}:${m}`
+            }
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
         function toggleFullscreen() {
             const elem = document.body;
 
