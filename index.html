@@ -32,8 +32,8 @@
             const timeElm = document.getElementById("time")
             if (timeElm) {
                 const now = new Date();
-                const h = now.getHours();
-                const m = now.getMinutes();
+                const h = now.getHours().toString().padStart(2, "0");
+                const m = now.getMinutes().toString().padStart(2, "0");
                 timeElm.innerText = `${h}:${m}`
             }
         }
